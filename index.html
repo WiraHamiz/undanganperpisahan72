@@ -25,7 +25,7 @@
         .hero {
             min-height: 100vh;
             background: linear-gradient(rgba(26, 42, 108, 0.7), rgba(26, 42, 108, 0.7)), 
-                        url('https://lh3.googleusercontent.com/d/1GHIAOLnFHrv9scwtwNcROXSlvGmn2IIT');
+                        url('https://lh3.googleusercontent.com/d/1JAypGmtMMDKmfptmRgGGpvdUOWT5EkWS');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -35,7 +35,64 @@
             align-items: center;
             text-align: center;
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
+        }
+
+        /* Wadah Logo */
+        .logo-wrapper {
+            position: relative;
+            width: 140px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .school-logo {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Efek Kilat yang Mengikuti Bentuk Logo */
+        .logo-shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            /* Rahasianya ada di sini: masker mengikuti bentuk logo */
+            -webkit-mask-image: url('https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB');
+            mask-image: url('https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB');
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .logo-shine::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 100%
+            );
+            transform: skewX(-25deg);
+            animation: shine-effect 4s infinite;
+        }
+
+        @keyframes shine-effect {
+            0% { left: -150%; }
+            20% { left: 150%; }
+            100% { left: 150%; }
         }
 
         .hero h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 3px; color: var(--gold); margin: 0; }
@@ -51,14 +108,11 @@
         }
 
         section { padding: 60px 20px; text-align: center; }
-
-        /* Countdown */
         .countdown-section { background: white; }
         #timer { display: flex; justify-content: center; gap: 10px; margin-top: 25px; flex-wrap: wrap; }
         .time-box { background: var(--primary); color: white; padding: 15px; border-radius: 12px; min-width: 80px; }
         .time-box span { display: block; font-size: 1.8rem; font-weight: bold; color: var(--gold); }
 
-        /* Card Layout */
         .card {
             background: white;
             max-width: 850px;
@@ -69,7 +123,6 @@
             border-top: 10px solid var(--gold);
         }
 
-        /* Info Grid */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -86,9 +139,9 @@
             border-radius: 12px;
         }
 
-        .highlight-price { font-weight: 600; color: #b8860b; background: #fff9e6; padding: 2px 8px; border-radius: 4px; }
+        .btn-maps { display: inline-block; margin-top: 35px; padding: 15px 40px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; }
+        footer { padding: 50px 20px; background: var(--primary); color: white; text-align: center; }
 
-        /* Rundown Styling */
         .rundown-list {
             text-align: left;
             max-width: 650px;
@@ -104,7 +157,6 @@
             border-bottom: 1px dashed #eee;
             display: flex;
             align-items: center;
-            font-size: 0.95rem;
         }
 
         .rundown-list li::before {
@@ -121,21 +173,23 @@
             font-weight: bold;
             flex-shrink: 0;
         }
-
-        .btn-maps { display: inline-block; margin-top: 35px; padding: 15px 40px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; }
-
-        footer { padding: 50px 20px; background: var(--primary); color: white; text-align: center; }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <div data-aos="fade-down">
+        <div class="logo-wrapper" data-aos="fade-down">
+            <img src="https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB" alt="Logo SMK Pembangunan" class="school-logo">
+            <div class="logo-shine"></div>
+        </div>
+        
+        <div data-aos="fade-down" data-aos-delay="200">
             <h2>PUNCAK APRESIASI & PERPISAHAN</h2>
             <h1>ANGKATAN 72</h1>
             <p>SMK Pembangunan Kota Bogor</p>
         </div>
-        <img src="https://lh3.googleusercontent.com/d/1JAypGmtMMDKmfptmRgGGpvdUOWT5EkWS" alt="Momen SMK Pembangunan" class="school-photo-center" data-aos="zoom-in" data-aos-delay="400">
+
+        <img src="https://lh3.googleusercontent.com/d/1JAypGmtMMDKmfptmRgGGpvdUOWT5EkWS" alt="Momen SMK Pembangunan" class="school-photo-center" data-aos="zoom-in" data-aos-delay="500">
     </section>
 
     <section class="countdown-section">
@@ -150,58 +204,43 @@
     <section class="details">
         <div class="card" data-aos="fade-up">
             <h3 style="font-family: 'Playfair Display'; font-size: 2.2rem; margin-bottom: 5px;">Informasi Penting</h3>
-            <p style="margin-bottom: 30px; opacity: 0.8;">Mohon perhatikan detail pelaksanaan berikut</p>
+            <p style="margin-bottom: 30px; opacity: 0.8;">Jalan Raya Pajajaran No. 63, Kota Bogor</p>
             
             <div class="info-grid">
                 <div class="info-item">
                     <h4>📅 Waktu & Lokasi</h4>
                     <p>
                         <strong>Rabu, 13 Mei 2026</strong><br>
-                        <strong>07.30 - 13.00 WIB</strong><br>
                         Gedung Aula SMK Pembangunan<br>
                         <small>Jl. Raya Pajajaran No. 63, Kota Bogor</small>
                     </p>
                 </div>
                 <div class="info-item">
                     <h4>👔 Ketentuan Busana</h4>
-                    <p>Jas/Batik (Putra) & Kebaya Bebas (Putri). Kehadiran paling lambat <strong>pukul 07.30 WIB</strong>.</p>
+                    <p>Jas/Batik (Putra) & Kebaya Bebas (Putri). Hadir <strong>pukul 07.30 WIB</strong>.</p>
                 </div>
                 <div class="info-item">
                     <h4>👨‍👩‍👧‍👦 Kehadiran Orang Tua</h4>
-                    <p>Tersedia area tunggu di Lapangan Futsal (Live Streaming). Disarankan hadir pukul 12.00 WIB untuk sesi foto bersama.</p>
-                </div>
-                <div class="info-item">
-                    <h4>📸 Fasilitas Foto</h4>
-                    <p>Tersedia Photo Booth & Foto Studio. Administrasi studio: <span class="highlight-price">Rp 25.000 / sesi</span>.</p>
+                    <p>Orang tua disarankan hadir pukul 12.00 WIB untuk sesi foto bersama di akhir acara.</p>
                 </div>
             </div>
 
             <div style="margin-top: 30px;">
-                <a href="https://www.google.com/maps/search/SMK+Pembangunan+Bogor+Jalan+Raya+Pajajaran+No+63" target="_blank" class="btn-maps">Petunjuk Jalan (Maps)</a>
+                <a href="https://www.google.com/maps/search/SMK+Pembangunan+Bogor+Jalan+Raya+Pajajaran+No+631" target="_blank" class="btn-maps">Petunjuk Jalan (Maps)</a>
             </div>
         </div>
 
         <div class="card" data-aos="fade-up" style="margin-top: 60px; border-top: 10px solid var(--primary);">
             <h3 style="font-family: 'Playfair Display'; font-size: 2rem;">Agenda Acara</h3>
-            <p style="opacity: 0.7;">Susunan Prosesi Perpisahan</p>
-            
             <ul class="rundown-list">
                 <li>Siswa & Guru memasuki gedung</li>
                 <li>Pembukaan oleh MC</li>
-                <li>Menyanyikan Lagu Indonesia Raya & Mars SMK Pembangunan</li>
+                <li>Menyanyikan Lagu Indonesia Raya & Mars Sekolah</li>
                 <li>Pembacaan Ayat Suci Al-Quran</li>
-                <li>Laporan Pelaksanaan Ujian Sekolah</li>
-                <li>Sambutan Kepala Cabang Dinas Pendidikan</li>
-                <li>Prosesi Siswa Berprestasi & Tari Tradisional</li>
-                <li>Sambutan Kepala Sekolah & Penyerahan Siswa</li>
-                <li>Pembacaan Doa</li>
                 <li>Wisuda Kelas XII Angkatan ke-72</li>
-                <li>Persembahan Lagu dari Guru & Staff</li>
-                <li>Foto Bersama Guru & Staff TU</li>
-                <li>Penampilan Siswa (Drama Kabaret)</li>
+                <li>Persembahan Lagu dari Guru</li>
                 <li>Penampilan Band Guru (Sugar Daddy)</li>
-                <li>Pemutaran Video Dokumenter</li>
-                <li>Penutup & Ramah Tamah (ISHOMA)</li>
+                <li>Penutup & Ramah Tamah</li>
             </ul>
         </div>
     </section>
@@ -217,7 +256,7 @@
         setInterval(function() {
             const now = new Date().getTime();
             const diff = target - now;
-            if (diff < 0) { document.getElementById("timer").innerHTML = "ACARA SEDANG BERLANGSUNG"; return; }
+            if (diff < 0) { document.getElementById("timer").innerHTML = "SEDANG BERLANGSUNG"; return; }
             document.getElementById("days").innerHTML = Math.floor(diff / (1000 * 60 * 60 * 24));
             document.getElementById("hours").innerHTML = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             document.getElementById("minutes").innerHTML = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));

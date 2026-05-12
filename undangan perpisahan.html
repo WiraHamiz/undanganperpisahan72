@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Perpisahan Angkatan 72 - SMK Pembangunan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a2a6c;
+            --gold: #d4af37;
+            --light: #fcfaf7;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--primary);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(26, 42, 108, 0.7), rgba(26, 42, 108, 0.7)), 
+                        url('https://lh3.googleusercontent.com/d/1GHIAOLnFHrv9scwtwNcROXSlvGmn2IIT');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 3px; color: var(--gold); margin: 0; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 3.5rem); margin: 10px 0; }
+
+        .school-photo-center {
+            margin-top: 30px;
+            width: 90%;
+            max-width: 550px;
+            border: 6px solid white;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+        }
+
+        section { padding: 60px 20px; text-align: center; }
+
+        /* Countdown */
+        .countdown-section { background: white; }
+        #timer { display: flex; justify-content: center; gap: 10px; margin-top: 25px; flex-wrap: wrap; }
+        .time-box { background: var(--primary); color: white; padding: 15px; border-radius: 12px; min-width: 80px; }
+        .time-box span { display: block; font-size: 1.8rem; font-weight: bold; color: var(--gold); }
+
+        /* Card Layout */
+        .card {
+            background: white;
+            max-width: 850px;
+            margin: 0 auto 40px;
+            padding: 40px 25px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            border-top: 10px solid var(--gold);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            padding: 20px;
+            background: #fcfcfc;
+            border: 1px solid #eee;
+            border-left: 4px solid var(--gold);
+            border-radius: 12px;
+        }
+
+        .highlight-price { font-weight: 600; color: #b8860b; background: #fff9e6; padding: 2px 8px; border-radius: 4px; }
+
+        /* Rundown Styling */
+        .rundown-list {
+            text-align: left;
+            max-width: 650px;
+            margin: 30px auto 0;
+            padding: 0;
+            list-style: none;
+            counter-reset: my-counter;
+        }
+
+        .rundown-list li {
+            counter-increment: my-counter;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .rundown-list li::before {
+            content: counter(my-counter);
+            background: var(--gold);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .btn-maps { display: inline-block; margin-top: 35px; padding: 15px 40px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; }
+
+        footer { padding: 50px 20px; background: var(--primary); color: white; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div data-aos="fade-down">
+            <h2>PUNCAK APRESIASI & PERPISAHAN</h2>
+            <h1>ANGKATAN 72</h1>
+            <p>SMK Pembangunan Kota Bogor</p>
+        </div>
+        <img src="https://lh3.googleusercontent.com/d/1JAypGmtMMDKmfptmRgGGpvdUOWT5EkWS" alt="Momen SMK Pembangunan" class="school-photo-center" data-aos="zoom-in" data-aos-delay="400">
+    </section>
+
+    <section class="countdown-section">
+        <h3 data-aos="fade-up">Menuju Hari Pelepasan</h3>
+        <div id="timer" data-aos="fade-up">
+            <div class="time-box"><span id="days">00</span> Hari</div>
+            <div class="time-box"><span id="hours">00</span> Jam</div>
+            <div class="time-box"><span id="minutes">00</span> Menit</div>
+        </div>
+    </section>
+
+    <section class="details">
+        <div class="card" data-aos="fade-up">
+            <h3 style="font-family: 'Playfair Display'; font-size: 2.2rem; margin-bottom: 5px;">Informasi Penting</h3>
+            <p style="margin-bottom: 30px; opacity: 0.8;">Mohon perhatikan detail pelaksanaan berikut</p>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>📅 Waktu & Lokasi</h4>
+                    <p>
+                        <strong>Rabu, 13 Mei 2026</strong><br>
+                        <strong>07.30 - 13.00 WIB</strong><br>
+                        Gedung Aula SMK Pembangunan<br>
+                        <small>Jl. Raya Pajajaran No. 63, Kota Bogor</small>
+                    </p>
+                </div>
+                <div class="info-item">
+                    <h4>👔 Ketentuan Busana</h4>
+                    <p>Jas/Batik (Putra) & Kebaya Bebas (Putri). Kehadiran paling lambat <strong>pukul 07.30 WIB</strong>.</p>
+                </div>
+                <div class="info-item">
+                    <h4>👨‍👩‍👧‍👦 Kehadiran Orang Tua</h4>
+                    <p>Tersedia area tunggu di Lapangan Futsal (Live Streaming). Disarankan hadir pukul 12.00 WIB untuk sesi foto bersama.</p>
+                </div>
+                <div class="info-item">
+                    <h4>📸 Fasilitas Foto</h4>
+                    <p>Tersedia Photo Booth & Foto Studio. Administrasi studio: <span class="highlight-price">Rp 25.000 / sesi</span>.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <a href="https://www.google.com/maps/search/SMK+Pembangunan+Bogor+Jalan+Raya+Pajajaran+No+63" target="_blank" class="btn-maps">Petunjuk Jalan (Maps)</a>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up" style="margin-top: 60px; border-top: 10px solid var(--primary);">
+            <h3 style="font-family: 'Playfair Display'; font-size: 2rem;">Agenda Acara</h3>
+            <p style="opacity: 0.7;">Susunan Prosesi Perpisahan</p>
+            
+            <ul class="rundown-list">
+                <li>Siswa & Guru memasuki gedung</li>
+                <li>Pembukaan oleh MC</li>
+                <li>Menyanyikan Lagu Indonesia Raya & Mars SMK Pembangunan</li>
+                <li>Pembacaan Ayat Suci Al-Quran</li>
+                <li>Laporan Pelaksanaan Ujian Sekolah</li>
+                <li>Sambutan Kepala Cabang Dinas Pendidikan</li>
+                <li>Prosesi Siswa Berprestasi & Tari Tradisional</li>
+                <li>Sambutan Kepala Sekolah & Penyerahan Siswa</li>
+                <li>Pembacaan Doa</li>
+                <li>Wisuda Kelas XII Angkatan ke-72</li>
+                <li>Persembahan Lagu dari Guru & Staff</li>
+                <li>Foto Bersama Guru & Staff TU</li>
+                <li>Penampilan Siswa (Drama Kabaret)</li>
+                <li>Penampilan Band Guru (Sugar Daddy)</li>
+                <li>Pemutaran Video Dokumenter</li>
+                <li>Penutup & Ramah Tamah (ISHOMA)</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>SMK Pembangunan Kota Bogor</strong><br>Angkatan 72 | TP 2025/2026</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        const target = new Date("May 13, 2026 07:30:00").getTime();
+        setInterval(function() {
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff < 0) { document.getElementById("timer").innerHTML = "ACARA SEDANG BERLANGSUNG"; return; }
+            document.getElementById("days").innerHTML = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerHTML = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerHTML = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        }, 1000);
+    </script>
+</body>
+</html>

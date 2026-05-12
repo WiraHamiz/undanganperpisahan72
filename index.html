@@ -21,6 +21,46 @@
             overflow-x: hidden;
         }
 
+        /* Overlay Sampul */
+        #overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(26, 42, 108, 0.9), rgba(26, 42, 108, 0.9)), 
+                        url('https://lh3.googleusercontent.com/d/1JAypGmtMMDKmfptmRgGGpvdUOWT5EkWS');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            text-align: center;
+            transition: 1s ease-in-out;
+            padding: 20px;
+        }
+
+        .btn-buka {
+            margin-top: 25px;
+            padding: 15px 40px;
+            background: var(--gold);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        /* Isi Undangan (Disembunyikan saat sampul aktif) */
+        .main-content {
+            opacity: 0;
+            transition: 1.5s;
+        }
+
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             background: linear-gradient(rgba(26, 42, 108, 0.7), rgba(26, 42, 108, 0.7)), 
@@ -44,84 +84,44 @@
             display: inline-block;
         }
 
-        .school-logo {
-            width: 100%;
-            height: auto;
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
+        .school-logo { width: 100%; height: auto; position: relative; z-index: 1; }
 
         .logo-shine {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;
             -webkit-mask-image: url('https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB');
             mask-image: url('https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB');
-            -webkit-mask-size: contain;
-            mask-size: contain;
-            -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
+            -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat;
             overflow: hidden;
         }
 
         .logo-shine::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -150%;
-            width: 100%;
-            height: 100%;
+            content: ""; position: absolute; top: 0; left: -150%; width: 100%; height: 100%;
             background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
-            transform: skewX(-25deg);
-            animation: shine-effect 4s infinite;
+            transform: skewX(-25deg); animation: shine-effect 4s infinite;
         }
 
-        @keyframes shine-effect {
-            0% { left: -150%; }
-            20% { left: 150%; }
-            100% { left: 150%; }
-        }
+        @keyframes shine-effect { 0% { left: -150%; } 20% { left: 150%; } 100% { left: 150%; } }
 
         .music-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: var(--gold);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 999;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            border: 2px solid white;
-            animation: pulse 2s infinite;
+            position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;
+            background: var(--gold); border-radius: 50%; display: flex;
+            justify-content: center; align-items: center; color: white;
+            font-size: 20px; cursor: pointer; z-index: 998;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 2px solid white;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
 
         .hero h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 3px; color: var(--gold); margin: 0; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 8vw, 3.8rem); margin: 10px 0; line-height: 1.2; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 8vw, 3.8rem); margin: 10px 0; }
 
         .school-photo-center {
-            margin-top: 30px;
-            width: 90%;
-            max-width: 550px;
-            border: 6px solid white;
-            border-radius: 20px;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+            margin-top: 30px; width: 90%; max-width: 550px; border: 6px solid white;
+            border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.6);
         }
 
         section { padding: 60px 20px; text-align: center; }
@@ -131,188 +131,148 @@
         .time-box span { display: block; font-size: 1.8rem; font-weight: bold; color: var(--gold); }
 
         .card {
-            background: white;
-            max-width: 850px;
-            margin: 0 auto 40px;
-            padding: 40px 25px;
-            border-radius: 30px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-            border-top: 10px solid var(--gold);
+            background: white; max-width: 850px; margin: 0 auto 40px; padding: 40px 25px;
+            border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border-top: 10px solid var(--gold);
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-            text-align: left;
-            margin-top: 30px;
-        }
-
-        .info-item {
-            padding: 20px;
-            background: #fcfcfc;
-            border: 1px solid #eee;
-            border-left: 4px solid var(--gold);
-            border-radius: 12px;
-        }
-
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; text-align: left; }
+        .info-item { padding: 20px; background: #fcfcfc; border: 1px solid #eee; border-left: 4px solid var(--gold); border-radius: 12px; }
         .btn-maps { display: inline-block; margin-top: 35px; padding: 15px 40px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; }
-        footer { padding: 50px 20px; background: var(--primary); color: white; text-align: center; }
+        
+        footer { padding: 50px 20px; background: var(--primary); color: white; }
 
-        .rundown-list {
-            text-align: left;
-            max-width: 650px;
-            margin: 30px auto 0;
-            padding: 0;
-            list-style: none;
-            counter-reset: my-counter;
-        }
-
+        .rundown-list { text-align: left; max-width: 650px; margin: 30px auto 0; padding: 0; list-style: none; counter-reset: my-counter; }
         .rundown-list li {
-            counter-increment: my-counter;
-            padding: 12px 0;
-            border-bottom: 1px dashed #eee;
-            display: flex;
-            align-items: center;
+            counter-increment: my-counter; padding: 12px 0; border-bottom: 1px dashed #eee; display: flex; align-items: center;
         }
-
         .rundown-list li::before {
-            content: counter(my-counter);
-            background: var(--gold);
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-weight: bold;
-            flex-shrink: 0;
+            content: counter(my-counter); background: var(--gold); color: white; width: 28px; height: 28px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <audio id="myAudio" loop>
-        <source src="https://docs.google.com/uc?export=download&id=1l28pwda4a8Qg5dvyBOIB6wGXz7aG7Pie" type="audio/mp3">
-    </audio>
-
-    <div class="music-btn" onclick="togglePlay()">
-        <span id="music-icon">🎵</span>
+    <div id="overlay">
+        <div class="logo-wrapper">
+            <img src="https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB" alt="Logo" class="school-logo">
+        </div>
+        <h2 style="font-family: 'Playfair Display'; letter-spacing: 2px;">UNDANGAN PERPISAHAN</h2>
+        <h1 style="font-family: 'Playfair Display'; margin: 10px 0;">ANGKATAN 72</h1>
+        <p style="opacity: 0.8;">SMK Pembangunan Kota Bogor</p>
+        <button class="btn-buka" onclick="bukaUndangan()">Buka Undangan</button>
     </div>
 
-    <section class="hero">
-        <div class="logo-wrapper" data-aos="fade-down">
-            <img src="https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB" alt="Logo SMK Pembangunan" class="school-logo">
-            <div class="logo-shine"></div>
-        </div>
-        
-        <div data-aos="fade-down" data-aos-delay="200">
-            <h2>PUNCAK APRESIASI & PERPISAHAN</h2>
-            <h1>ANGKATAN 72</h1>
-            <p>SMK Pembangunan Kota Bogor</p>
+    <audio id="myAudio" loop>
+        <source src="kitakesana.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="main-content" id="content">
+        <div class="music-btn" onclick="togglePlay()">
+            <span id="music-icon">⏸️</span>
         </div>
 
-        <img src="https://lh3.googleusercontent.com/d/1JAypGmtMMDKmfptmRgGGpvdUOWT5EkWS" alt="Momen SMK Pembangunan" class="school-photo-center" data-aos="zoom-in" data-aos-delay="500">
-    </section>
+        <section class="hero">
+            <div class="logo-wrapper" data-aos="fade-down">
+                <img src="https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB" alt="Logo" class="school-logo">
+                <div class="logo-shine"></div>
+            </div>
+            <div data-aos="fade-down" data-aos-delay="200">
+                <h2>PUNCAK APRESIASI & PERPISAHAN</h2>
+                <h1>ANGKATAN 72</h1>
+                <p>SMK Pembangunan Kota Bogor</p>
+            </div>
+            <img src="https://lh3.googleusercontent.com/d/1JAypGmtMMDKmfptmRgGGpvdUOWT5EkWS" alt="Momen" class="school-photo-center" data-aos="zoom-in" data-aos-delay="500">
+        </section>
 
-    <section class="countdown-section">
-        <h3 data-aos="fade-up">Menuju Hari Pelepasan</h3>
-        <div id="timer" data-aos="fade-up">
-            <div class="time-box"><span id="days">00</span> Hari</div>
-            <div class="time-box"><span id="hours">00</span> Jam</div>
-            <div class="time-box"><span id="minutes">00</span> Menit</div>
-        </div>
-    </section>
+        <section class="countdown-section">
+            <h3 data-aos="fade-up">Menuju Hari Pelepasan</h3>
+            <div id="timer" data-aos="fade-up">
+                <div class="time-box"><span id="days">00</span> Hari</div>
+                <div class="time-box"><span id="hours">00</span> Jam</div>
+                <div class="time-box"><span id="minutes">00</span> Menit</div>
+            </div>
+        </section>
 
-    <section class="details">
-        <div class="card" data-aos="fade-up">
-            <h3 style="font-family: 'Playfair Display'; font-size: 2.2rem; margin-bottom: 5px;">Informasi Penting</h3>
-            <p style="margin-bottom: 30px; opacity: 0.8;">Jalan Raya Pajajaran No. 63, Kota Bogor</p>
-            
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>📅 Waktu & Lokasi</h4>
-                    <p>
-                        <strong>Rabu, 13 Mei 2026</strong><br>
-                        Gedung Aula SMK Pembangunan<br>
-                        <small>Jl. Raya Pajajaran No. 63, Kota Bogor</small>
-                    </p>
+        <section class="details">
+            <div class="card" data-aos="fade-up">
+                <h3 style="font-family: 'Playfair Display'; font-size: 2.2rem;">Informasi Penting</h3>
+                <p style="opacity: 0.8; margin-bottom: 30px;">Gedung Aula SMK Pembangunan</p>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h4>📅 Waktu</h4>
+                        <p><strong>Rabu, 13 Mei 2026</strong><br>Pukul 07.30 WIB - Selesai</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>👔 Busana</h4>
+                        <p>Putra: Jas/Batik<br>Putri: Kebaya Bebas</p>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <h4>👔 Ketentuan Busana</h4>
-                    <p>Jas/Batik (Putra) & Kebaya Bebas (Putri). Hadir <strong>pukul 07.30 WIB</strong>.</p>
-                </div>
-                <div class="info-item">
-                    <h4>👨‍👩‍👧‍👦 Kehadiran Orang Tua</h4>
-                    <p>Hadir pukul 12.00 WIB untuk sesi foto bersama di akhir acara.</p>
-                </div>
+                <a href="https://maps.app.goo.gl/3QW6ZfXv1GvA4vFv7" target="_blank" class="btn-maps">Petunjuk Lokasi (Maps)</a>
             </div>
 
-            <div style="margin-top: 30px;">
-                <a href="https://maps.app.goo.gl/3QW6ZfXv1GvA4vFv7" target="_blank" class="btn-maps">Petunjuk Jalan (Maps)</a>
+            <div class="card" data-aos="fade-up" style="border-top-color: var(--primary);">
+                <h3 style="font-family: 'Playfair Display'; font-size: 2rem;">Agenda Acara</h3>
+                <ul class="rundown-list">
+                    <li>Siswa & Guru memasuki gedung</li>
+                    <li>Pembukaan & Menyanyikan Lagu Kebangsaan</li>
+                    <li>Wisuda Kelas XII Angkatan ke-72</li>
+                    <li>Penampilan Band Guru (Sugar Daddy)</li>
+                    <li>Ramah Tamah & Sesi Foto</li>
+                </ul>
             </div>
-        </div>
+        </section>
 
-        <div class="card" data-aos="fade-up" style="margin-top: 60px; border-top: 10px solid var(--primary);">
-            <h3 style="font-family: 'Playfair Display'; font-size: 2rem;">Agenda Acara</h3>
-            <ul class="rundown-list">
-                <li>Siswa & Guru memasuki gedung</li>
-                <li>Pembukaan oleh MC</li>
-                <li>Menyanyikan Lagu Indonesia Raya & Mars Sekolah</li>
-                <li>Pembacaan Ayat Suci Al-Quran</li>
-                <li>Wisuda Kelas XII Angkatan ke-72</li>
-                <li>Persembahan Lagu dari Guru</li>
-                <li>Penampilan Band Guru (Sugar Daddy)</li>
-                <li>Penutup & Ramah Tamah</li>
-            </ul>
-        </div>
-    </section>
-
-    <footer>
-        <p><strong>SMK Pembangunan Kota Bogor</strong><br>Angkatan 72 | TP 2025/2026</p>
-    </footer>
+        <footer>
+            <p><strong>SMK Pembangunan Kota Bogor</strong><br>Angkatan 72 | TP 2025/2026</p>
+        </footer>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
-        
+
+        const audio = document.getElementById('myAudio');
+        const overlay = document.getElementById('overlay');
+        const content = document.getElementById('content');
+
+        function bukaUndangan() {
+            // Sembunyikan Overlay
+            overlay.style.opacity = "0";
+            overlay.style.pointerEvents = "none";
+            
+            // Tampilkan Konten
+            content.style.opacity = "1";
+            
+            // Mainkan Musik
+            audio.play().catch(e => console.log("Gagal putar:", e));
+            
+            setTimeout(() => {
+                overlay.style.display = "none";
+            }, 1000);
+        }
+
+        function togglePlay() {
+            const icon = document.getElementById('music-icon');
+            if (audio.paused) {
+                audio.play();
+                icon.innerHTML = '⏸️';
+            } else {
+                audio.pause();
+                icon.innerHTML = '🎵';
+            }
+        }
+
+        // Countdown
         const target = new Date("May 13, 2026 07:30:00").getTime();
         setInterval(function() {
             const now = new Date().getTime();
             const diff = target - now;
-            if (diff < 0) { document.getElementById("timer").innerHTML = "SEDANG BERLANGSUNG"; return; }
+            if (diff < 0) return;
             document.getElementById("days").innerHTML = Math.floor(diff / (1000 * 60 * 60 * 24));
             document.getElementById("hours").innerHTML = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             document.getElementById("minutes").innerHTML = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         }, 1000);
-
-        const audio = document.getElementById('myAudio');
-        let isPlaying = false;
-
-        function togglePlay() {
-            const icon = document.getElementById('music-icon');
-            if (!isPlaying) {
-                audio.play().then(() => {
-                    icon.innerHTML = '⏸️';
-                    isPlaying = true;
-                }).catch(e => console.log("Play diblokir:", e));
-            } else {
-                audio.pause();
-                icon.innerHTML = '🎵';
-                isPlaying = false;
-            }
-        }
-
-        // Trik Autoplay: Musik akan mulai saat layar disentuh pertama kali
-        window.addEventListener('touchstart', function() {
-            if(!isPlaying) togglePlay();
-        }, { once: true });
-        
-        window.addEventListener('click', function() {
-            if(!isPlaying) togglePlay();
-        }, { once: true });
     </script>
 </body>
 </html>

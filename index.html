@@ -54,7 +54,7 @@
             animation: pulse 2s infinite;
         }
 
-        /* Isi Undangan (Disembunyikan saat sampul aktif) */
+        /* Isi Undangan */
         .main-content {
             opacity: 0;
             transition: 1.5s;
@@ -164,7 +164,7 @@
     </div>
 
     <audio id="myAudio" loop>
-        <source src="kitakesana.mp3" type="audio/mpeg">
+        <source src="https://www.bensound.com/bensound-music/bensound-memories.mp3" type="audio/mpeg">
     </audio>
 
     <div class="main-content" id="content">
@@ -197,7 +197,6 @@
         <section class="details">
             <div class="card" data-aos="fade-up">
                 <h3 style="font-family: 'Playfair Display'; font-size: 2.2rem;">Informasi Penting</h3>
-                <p style="opacity: 0.8; margin-bottom: 30px;">Gedung Aula SMK Pembangunan</p>
                 <div class="info-grid">
                     <div class="info-item">
                         <h4>📅 Waktu</h4>
@@ -209,17 +208,6 @@
                     </div>
                 </div>
                 <a href="https://maps.app.goo.gl/3QW6ZfXv1GvA4vFv7" target="_blank" class="btn-maps">Petunjuk Lokasi (Maps)</a>
-            </div>
-
-            <div class="card" data-aos="fade-up" style="border-top-color: var(--primary);">
-                <h3 style="font-family: 'Playfair Display'; font-size: 2rem;">Agenda Acara</h3>
-                <ul class="rundown-list">
-                    <li>Siswa & Guru memasuki gedung</li>
-                    <li>Pembukaan & Menyanyikan Lagu Kebangsaan</li>
-                    <li>Wisuda Kelas XII Angkatan ke-72</li>
-                    <li>Penampilan Band Guru (Sugar Daddy)</li>
-                    <li>Ramah Tamah & Sesi Foto</li>
-                </ul>
             </div>
         </section>
 
@@ -237,15 +225,12 @@
         const content = document.getElementById('content');
 
         function bukaUndangan() {
-            // Sembunyikan Overlay
             overlay.style.opacity = "0";
             overlay.style.pointerEvents = "none";
-            
-            // Tampilkan Konten
             content.style.opacity = "1";
             
-            // Mainkan Musik
-            audio.play().catch(e => console.log("Gagal putar:", e));
+            // Mencoba putar musik
+            audio.play().catch(e => console.log("Gagal putar otomatis:", e));
             
             setTimeout(() => {
                 overlay.style.display = "none";
@@ -263,7 +248,6 @@
             }
         }
 
-        // Countdown
         const target = new Date("May 13, 2026 07:30:00").getTime();
         setInterval(function() {
             const now = new Date().getTime();

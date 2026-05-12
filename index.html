@@ -21,7 +21,6 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             background: linear-gradient(rgba(26, 42, 108, 0.7), rgba(26, 42, 108, 0.7)), 
@@ -38,7 +37,6 @@
             padding: 60px 20px;
         }
 
-        /* Wadah Logo */
         .logo-wrapper {
             position: relative;
             width: 140px;
@@ -54,7 +52,6 @@
             z-index: 1;
         }
 
-        /* Efek Kilat */
         .logo-shine {
             position: absolute;
             top: 0;
@@ -89,7 +86,6 @@
             100% { left: 150%; }
         }
 
-        /* Floating Music Button */
         .music-btn {
             position: fixed;
             bottom: 20px;
@@ -198,12 +194,12 @@
 </head>
 <body>
 
+    <audio id="myAudio" loop>
+        <source src="https://docs.google.com/uc?export=download&id=1l28pwda4a8Qg5dvyBOIB6wGXz7aG7Pie" type="audio/mp3">
+    </audio>
+
     <div class="music-btn" onclick="togglePlay()">
         <span id="music-icon">🎵</span>
-    </div>
-
-    <div style="display:none">
-        <div id="player"></div>
     </div>
 
     <section class="hero">
@@ -278,12 +274,10 @@
         <p><strong>SMK Pembangunan Kota Bogor</strong><br>Angkatan 72 | TP 2025/2026</p>
     </footer>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
         
-        // Timer
         const target = new Date("May 13, 2026 07:30:00").getTime();
         setInterval(function() {
             const now = new Date().getTime();
@@ -294,28 +288,31 @@
             document.getElementById("minutes").innerHTML = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         }, 1000);
 
-        // Music Player
-        let player;
+        const audio = document.getElementById('myAudio');
         let isPlaying = false;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '0', width: '0', videoId: 'tq3JwQiDmlM',
-                playerVars: { 'autoplay': 0, 'loop': 1, 'playlist': 'tq3JwQiDmlM' }
-            });
-        }
 
         function togglePlay() {
             const icon = document.getElementById('music-icon');
             if (!isPlaying) {
-                player.playVideo();
-                icon.innerHTML = '⏸️';
-                isPlaying = true;
+                audio.play().then(() => {
+                    icon.innerHTML = '⏸️';
+                    isPlaying = true;
+                }).catch(e => console.log("Play diblokir:", e));
             } else {
-                player.pauseVideo();
+                audio.pause();
                 icon.innerHTML = '🎵';
                 isPlaying = false;
             }
         }
+
+        // Trik Autoplay: Musik akan mulai saat layar disentuh pertama kali
+        window.addEventListener('touchstart', function() {
+            if(!isPlaying) togglePlay();
+        }, { once: true });
+        
+        window.addEventListener('click', function() {
+            if(!isPlaying) togglePlay();
+        }, { once: true });
     </script>
 </body>
 </html>

@@ -21,50 +21,11 @@
             overflow-x: hidden;
         }
 
-        /* Overlay Sampul */
-        #overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(26, 42, 108, 0.9), rgba(26, 42, 108, 0.9)), 
-                        url('https://lh3.googleusercontent.com/d/1JAypGmtMMDKmfptmRgGGpvdUOWT5EkWS');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            color: white;
-            text-align: center;
-            transition: 1s ease-in-out;
-            padding: 20px;
-        }
-
-        .btn-buka {
-            margin-top: 25px;
-            padding: 15px 40px;
-            background: var(--gold);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            animation: pulse 2s infinite;
-        }
-
-        /* Isi Undangan */
-        .main-content {
-            opacity: 0;
-            transition: 1.5s;
-        }
-
         /* Hero Section */
         .hero {
             min-height: 100vh;
             background: linear-gradient(rgba(26, 42, 108, 0.7), rgba(26, 42, 108, 0.7)), 
-                        url('https://lh3.googleusercontent.com/d/1JAypGmtMMDKmfptmRgGGpvdUOWT5EkWS');
+                        url('https://lh3.googleusercontent.com/d/1GHIAOLnFHrv9scwtwNcROXSlvGmn2IIT');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -74,9 +35,10 @@
             align-items: center;
             text-align: center;
             color: white;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
+        /* Logo Styling & Shine Effect */
         .logo-wrapper {
             position: relative;
             width: 140px;
@@ -84,175 +46,275 @@
             display: inline-block;
         }
 
-        .school-logo { width: 100%; height: auto; position: relative; z-index: 1; }
+        .school-logo {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
 
         .logo-shine {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            /* Mengunci kilauan agar hanya muncul di area logo bulat */
             -webkit-mask-image: url('https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB');
             mask-image: url('https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB');
-            -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
             overflow: hidden;
         }
 
         .logo-shine::after {
-            content: ""; position: absolute; top: 0; left: -150%; width: 100%; height: 100%;
-            background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
-            transform: skewX(-25deg); animation: shine-effect 4s infinite;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 100%
+            );
+            transform: skewX(-25deg);
+            animation: shine-effect 4s infinite;
         }
 
-        @keyframes shine-effect { 0% { left: -150%; } 20% { left: 150%; } 100% { left: 150%; } }
-
-        .music-btn {
-            position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;
-            background: var(--gold); border-radius: 50%; display: flex;
-            justify-content: center; align-items: center; color: white;
-            font-size: 20px; cursor: pointer; z-index: 998;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 2px solid white;
+        @keyframes shine-effect {
+            0% { left: -150%; }
+            20% { left: 150%; }
+            100% { left: 150%; }
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        .hero h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 3px; color: var(--gold); margin: 0; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 3.5rem); margin: 10px 0; }
+
+        .school-photo {
+            margin-top: 30px;
+            width: 90%;
+            max-width: 550px;
+            border: 6px solid white;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.6);
         }
 
-        .hero h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 3px; color: var(--gold); margin: 0; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 8vw, 3.8rem); margin: 10px 0; }
-
-        .school-photo-center {
-            margin-top: 30px; width: 90%; max-width: 550px; border: 6px solid white;
-            border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.6);
-        }
-
+        /* Section Styling */
         section { padding: 60px 20px; text-align: center; }
+
         .countdown-section { background: white; }
         #timer { display: flex; justify-content: center; gap: 10px; margin-top: 25px; flex-wrap: wrap; }
         .time-box { background: var(--primary); color: white; padding: 15px; border-radius: 12px; min-width: 80px; }
         .time-box span { display: block; font-size: 1.8rem; font-weight: bold; color: var(--gold); }
 
+        /* Card Details */
         .card {
-            background: white; max-width: 850px; margin: 0 auto 40px; padding: 40px 25px;
-            border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border-top: 10px solid var(--gold);
+            background: white;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 40px 25px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            border-top: 10px solid var(--gold);
         }
 
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; text-align: left; }
-        .info-item { padding: 20px; background: #fcfcfc; border: 1px solid #eee; border-left: 4px solid var(--gold); border-radius: 12px; }
-        .btn-maps { display: inline-block; margin-top: 35px; padding: 15px 40px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; }
-        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            padding: 20px;
+            background: #fcfcfc;
+            border: 1px solid #eee;
+            border-left: 4px solid var(--gold);
+            border-radius: 12px;
+        }
+
+        .info-item h4 { margin: 0 0 10px 0; color: var(--primary); font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
+        .info-item p { margin: 0; font-size: 0.9rem; line-height: 1.6; color: #444; }
+
+        .highlight-price {
+            font-weight: 600;
+            color: #b8860b;
+            background: #fff9e6;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Agenda Acara Styling */
+        .rundown-list {
+            text-align: left;
+            max-width: 650px;
+            margin: 30px auto 0;
+            padding: 0;
+            list-style: none;
+            counter-reset: my-counter;
+        }
+
+        .rundown-list li {
+            counter-increment: my-counter;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .rundown-list li::before {
+            content: counter(my-counter);
+            background: var(--gold);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .btn-maps {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-maps:hover { background: var(--gold); transform: translateY(-3px); }
+
         footer { padding: 50px 20px; background: var(--primary); color: white; text-align: center; }
 
-        .rundown-list { text-align: left; max-width: 650px; margin: 30px auto 0; padding: 0; list-style: none; counter-reset: my-counter; }
-        .rundown-list li {
-            counter-increment: my-counter; padding: 12px 0; border-bottom: 1px dashed #eee; display: flex; align-items: center;
-        }
-        .rundown-list li::before {
-            content: counter(my-counter); background: var(--gold); color: white; width: 28px; height: 28px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;
+        @media (max-width: 600px) {
+            .info-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div id="overlay">
-        <div class="logo-wrapper">
-            <img src="https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB" alt="Logo" class="school-logo">
-        </div>
-        <h2 style="font-family: 'Playfair Display'; letter-spacing: 2px;">UNDANGAN PERPISAHAN</h2>
-        <h1 style="font-family: 'Playfair Display'; margin: 10px 0;">ANGKATAN 72</h1>
-        <p style="opacity: 0.8;">SMK Pembangunan Kota Bogor</p>
-        <button class="btn-buka" onclick="bukaUndangan()">Buka Undangan</button>
-    </div>
-
-    <audio id="myAudio" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-memories.mp3" type="audio/mpeg">
-    </audio>
-
-    <div class="main-content" id="content">
-        <div class="music-btn" onclick="togglePlay()">
-            <span id="music-icon">⏸️</span>
+    <section class="hero">
+        <div class="logo-wrapper" data-aos="fade-down">
+            <img src="https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB" alt="Logo SMK Pembangunan" class="school-logo">
+            <div class="logo-shine"></div>
         </div>
 
-        <section class="hero">
-            <div class="logo-wrapper" data-aos="fade-down">
-                <img src="https://lh3.googleusercontent.com/d/1ZFsAzpVeiwex8MGMXlFev-wuQzZc9xPB" alt="Logo" class="school-logo">
-                <div class="logo-shine"></div>
-            </div>
-            <div data-aos="fade-down" data-aos-delay="200">
-                <h2>PUNCAK APRESIASI & PERPISAHAN</h2>
-                <h1>ANGKATAN 72</h1>
-                <p>SMK Pembangunan Kota Bogor</p>
-            </div>
-            <img src="https://lh3.googleusercontent.com/d/1JAypGmtMMDKmfptmRgGGpvdUOWT5EkWS" alt="Momen" class="school-photo-center" data-aos="zoom-in" data-aos-delay="500">
-        </section>
+        <div data-aos="fade-down" data-aos-delay="200">
+            <h2>PUNCAK APRESIASI & PERPISAHAN</h2>
+            <h1>ANGKATAN 72</h1>
+            <p>SMK Pembangunan Kota Bogor</p>
+        </div>
+        <img src="https://lh3.googleusercontent.com/d/1GHIAOLnFHrv9scwtwNcROXSlvGmn2IIT" 
+             alt="Gedung SMK Pembangunan" 
+             class="school-photo" 
+             data-aos="zoom-in" 
+             data-aos-delay="400">
+    </section>
 
-        <section class="countdown-section">
-            <h3 data-aos="fade-up">Menuju Hari Pelepasan</h3>
-            <div id="timer" data-aos="fade-up">
-                <div class="time-box"><span id="days">00</span> Hari</div>
-                <div class="time-box"><span id="hours">00</span> Jam</div>
-                <div class="time-box"><span id="minutes">00</span> Menit</div>
-            </div>
-        </section>
+    <section class="countdown-section">
+        <h3 data-aos="fade-up">Menuju Hari Pelepasan</h3>
+        <div id="timer" data-aos="fade-up">
+            <div class="time-box"><span id="days">00</span> Hari</div>
+            <div class="time-box"><span id="hours">00</span> Jam</div>
+            <div class="time-box"><span id="minutes">00</span> Menit</div>
+        </div>
+    </section>
 
-        <section class="details">
-            <div class="card" data-aos="fade-up">
-                <h3 style="font-family: 'Playfair Display'; font-size: 2.2rem;">Informasi Penting</h3>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <h4>📅 Waktu</h4>
-                        <p><strong>Rabu, 13 Mei 2026</strong><br>Pukul 07.30 WIB - Selesai</p>
-                    </div>
-                    <div class="info-item">
-                        <h4>👔 Busana</h4>
-                        <p>Putra: Jas/Batik<br>Putri: Kebaya Bebas</p>
-                    </div>
+    <section class="details">
+        <div class="card" data-aos="fade-up">
+            <h3 style="font-family: 'Playfair Display'; font-size: 2.2rem; margin-bottom: 5px;">Informasi Acara</h3>
+            <p style="margin-bottom: 30px; opacity: 0.8;">Jalan Raya Pajajaran No. 63, Kota Bogor</p>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>📅 Waktu & Lokasi</h4>
+                    <p>
+                        <strong>Rabu, 13 Mei 2026</strong><br>
+                        <strong>07.30 - 13.00 WIB</strong><br>
+                        Gedung Aula SMK Pembangunan<br>
+                        <small>Jl. Raya Pajajaran No. 63, Kota Bogor</small>
+                    </p>
                 </div>
-                <a href="https://maps.app.goo.gl/3QW6ZfXv1GvA4vFv7" target="_blank" class="btn-maps">Petunjuk Lokasi (Maps)</a>
-            </div>
-        </section>
+                
+                <div class="info-item">
+                    <h4>👔 Ketentuan Busana</h4>
+                    <p>Siswa mengenakan Jas atau Batik (Laki-laki) dan Kebaya Bebas (Perempuan). Siswa diharapkan hadir paling lambat <strong>pukul 07.30 WIB</strong>.</p>
+                </div>
 
-        <footer>
-            <p><strong>SMK Pembangunan Kota Bogor</strong><br>Angkatan 72 | TP 2025/2026</p>
-        </footer>
-    </div>
+                <div class="info-item">
+                    <h4>👨‍👩‍👧‍👦 Kehadiran Orang Tua</h4>
+                    <p>Kehadiran Orang Tua bersifat opsional. Kami menyediakan area tunggu di Lapangan Futsal dengan fasilitas <strong>Live Streaming</strong>. Bapak/Ibu disarankan hadir menjelang akhir acara (sekitar <strong>pukul 12.00 WIB</strong>) untuk sesi foto bersama.</p>
+                </div>
+
+                <div class="info-item">
+                    <h4>📸 Fasilitas Foto</h4>
+                    <p>Tersedia Photo Booth dan Foto Studio bagi yang ingin mengabadikan momen perpisahan. Biaya administrasi foto studio adalah <span class="highlight-price">Rp 25.000 / sesi</span>.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 30px;">
+                <a href="https://www.google.com/maps/search/SMK+Pembangunan+Bogor+Jalan+Raya+Pajajaran+No+63" target="_blank" class="btn-maps">Petunjuk Jalan (Google Maps)</a>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up" style="border-top-color: var(--primary);">
+            <h3 style="font-family: 'Playfair Display'; font-size: 2.1rem; margin-bottom: 20px;">Agenda Acara</h3>
+            <ul class="rundown-list">
+                <li>Siswa & Guru memasuki gedung</li>
+                <li>Pembukaan oleh MC</li>
+                <li>Menyanyikan Lagu Indonesia Raya & Mars SMK Pembangunan</li>
+                <li>Pembacaan Ayat Suci Al-Quran & Saritilawah</li>
+                <li>Laporan Pelaksanaan Ujian Sekolah</li>
+                <li>Sambutan-sambutan (KCD, Kepsek, Komite)</li>
+                <li>Prosesi Siswa Berprestasi & Tari Tradisional</li>
+                <li>Pembacaan Doa</li>
+                <li>Wisuda Kelas XII Angkatan ke-72</li>
+                <li>Persembahan Lagu dari Guru</li>
+                <li>Foto Bersama per Kelas</li>
+                <li>Penampilan Drama Kabaret Siswa</li>
+                <li>Penampilan Band Guru (Sugar Daddy)</li>
+                <li>Pemutaran Video Dokumenter Angkatan</li>
+                <li>Penutup & Ramah Tamah</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>SMK Pembangunan Kota Bogor</strong><br>Angkatan 72 | Tahun Pelajaran 2025/2026</p>
+        <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 20px;">Melangkah Maju dengan Ilmu, Mengukir Cerita dengan Karya.</p>
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        const audio = document.getElementById('myAudio');
-        const overlay = document.getElementById('overlay');
-        const content = document.getElementById('content');
-
-        function bukaUndangan() {
-            overlay.style.opacity = "0";
-            overlay.style.pointerEvents = "none";
-            content.style.opacity = "1";
-            
-            // Mencoba putar musik
-            audio.play().catch(e => console.log("Gagal putar otomatis:", e));
-            
-            setTimeout(() => {
-                overlay.style.display = "none";
-            }, 1000);
-        }
-
-        function togglePlay() {
-            const icon = document.getElementById('music-icon');
-            if (audio.paused) {
-                audio.play();
-                icon.innerHTML = '⏸️';
-            } else {
-                audio.pause();
-                icon.innerHTML = '🎵';
-            }
-        }
-
         const target = new Date("May 13, 2026 07:30:00").getTime();
+
         setInterval(function() {
             const now = new Date().getTime();
             const diff = target - now;
-            if (diff < 0) return;
+
+            if (diff < 0) {
+                document.getElementById("timer").innerHTML = "ACARA SEDANG BERLANGSUNG";
+                return;
+            }
+
             document.getElementById("days").innerHTML = Math.floor(diff / (1000 * 60 * 60 * 24));
             document.getElementById("hours").innerHTML = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             document.getElementById("minutes").innerHTML = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
